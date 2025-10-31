@@ -51,7 +51,15 @@ OF_LOOP_DEVICE_ERRORS_TO_LOG := 1
 OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
 
 # don't keep log history - only use for Stable releases
-# OF_DONT_KEEP_LOG_HISTORY := 1
+ifneq ($(FOX_BUILD_TYPE),Stable)
+   OF_DONT_KEEP_LOG_HISTORY := 1
+endif
+
+# build all the partition tools
+OF_ENABLE_ALL_PARTITION_TOOLS := 1
+
+# use legacy code for wrong clock issues
+OF_USE_LEGACY_TIME_FIXUP := 1
 
 # automatically wipe /metadata after formatting /data (doesn't seem necessary here)
 # OF_WIPE_METADATA_AFTER_DATAFORMAT := 1
@@ -59,9 +67,6 @@ OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
 # use lz4 compression (don't duplicate the setting - already set by "BOARD_RAMDISK_USE_LZ4 := true")
 # OF_USE_LZ4_COMPRESSION := 1
 
-# build all the partition tools
-OF_ENABLE_ALL_PARTITION_TOOLS := 1
-
-# use legacy code for wrong clock issues
-OF_USE_LEGACY_TIME_FIXUP := 1
+# full ramdisk flash is too time-consuming for this device
+# OF_RECOVERY_AB_FULL_REFLASH_RAMDISK := 1
 #

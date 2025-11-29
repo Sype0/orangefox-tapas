@@ -1,4 +1,8 @@
 #!/system/bin/sh
+#
+# Copyright (C) 2024-2025 The OrangeFox Recovery Project
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
 
 setdevicename() {
     resetprop "ro.product.name" "$1";
@@ -27,30 +31,44 @@ setdevicemodel() {
 }
 
 process_device() {
+	local devicemodel;
+	local dev_desc;
 	local dev=$(getprop "ro.boot.hwname");
-	[ -z "$dev" ] && dev=topaz;
-
-	setdevicename "$dev";
 
 	case "$dev" in
 	topaz)
-		setdevicemodel "23021RAA2Y";
+		devicemodel="23021RAA2Y";
+		dev_desc="Redmi Note 12 4G NFC";
 	;;
 	tapas)
-		setdevicemodel "23021RAAEG";
+		devicemodel="23021RAAEG";
+		dev_desc="Redmi Note 12 4G";
 	;;
 	sapphiren)
-		setdevicemodel "23124RA7EO";
+		devicemodel="23124RA7EO";
+		dev_desc="Xiaomi Redmi Note 13 4G";
 	;;
 	sapphire)
-		setdevicemodel "23129RAA4G";
+		devicemodel="23129RAA4G";
+		dev_desc="Xiaomi Redmi Note 13 4G";
+	;;
+	creek)
+		devicemodel="25062RN2DL";
+		dev_desc="Redmi 15 4G/POCO M7 4G";
 	;;
 	*)
-		setdevicename "topaz";
-		setdevicemodel "23021RAA2Y";
+		devicemodel="23021RAAEG";
+		dev_desc="Redmi Note 12 4G";
+		dev="tapas";
 	;;
 	esac
+
+	setdevicename "$dev";
+	setdevicemodel "$devicemodel";
+	resetprop "ro.display.series" "$dev_desc";
+	resetprop "ro.product.bootimage.model" "$dev_desc";
 }
+
 
 #
 process_device;

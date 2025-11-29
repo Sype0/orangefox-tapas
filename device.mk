@@ -27,7 +27,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # devices
-TARGET_OTA_ASSERT_DEVICE := topaz,tapas,sapphire,sapphiren
+TARGET_OTA_ASSERT_DEVICE := topaz,tapas,sapphire,sapphiren,creek
 
 # Boot control, Firmware
 PRODUCT_PACKAGES += \

@@ -51,7 +51,7 @@ load_touch_drivers() {
 	local path1=/vendor/lib/modules/1.1;
 	local path2=/tmp/vendor/lib/modules;
 	local path3=/lib/modules;
-	local modules="focaltech_ts_i2c goodix_ts_9896 xiaomi_touch_game";
+	local modules="focaltech_ts_i2c goodix_ts_9896 xiaomi_touch_game nt36672s_spi td4376_spi";
 
 	# loop through the touch modules
 	for i in $modules; do

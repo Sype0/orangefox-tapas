@@ -38,7 +38,8 @@ Works:
 - [X] USB OTG
 - [X] MicroSD Card
 - [X] Vibrator
-- [X] Touchscreen (except for _creek_)
+- [X] Touchscreen
+- [X] Flashlight (except for _creek_)
 
 ## Building
 

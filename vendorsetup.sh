@@ -41,7 +41,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_VIRTUAL_AB_DEVICE=1
 	export FOX_AB_DEVICE=1
 	export FOX_VANILLA_BUILD=1
-	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v28.1.zip
 	export FOX_ENABLE_APP_MANAGER=1
 	export FOX_USE_BASH_SHELL=1
 	export FOX_ASH_IS_BASH=1
@@ -56,6 +55,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 	# FRP
 	export OF_ENABLE_FRP_ADDON=1
+
+	# Magisk
+	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v30.6.zip
 
 	# KSU, etc.
 	export FOX_ENABLE_KERNELSU_SUPPORT=1

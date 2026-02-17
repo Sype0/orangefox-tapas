@@ -63,6 +63,10 @@ OF_USE_LEGACY_TIME_FIXUP := 1
 
 # enable dmctl
 OF_USE_DMCTL := 1
+
+# FRP
+OF_ENABLE_FRP_ADDON := 1
+
 # automatically wipe /metadata after formatting /data (doesn't seem necessary here)
 # OF_WIPE_METADATA_AFTER_DATAFORMAT := 1
 

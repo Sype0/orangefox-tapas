@@ -53,9 +53,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_ZSTD_BINARY=1
 	export FOX_USE_DATE_BINARY=1
 
-	# Magisk
-	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v30.6.zip
-
 	# KSU, etc.
 	export FOX_ENABLE_KERNELSU_SUPPORT=1
 	export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1

@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# Copyright (C) 2024-2025 The OrangeFox Recovery Project
+# Copyright (C) 2024-2026 The OrangeFox Recovery Project
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
@@ -114,7 +114,7 @@ TW_MAX_BRIGHTNESS       := 2047
 TW_EXTRA_LANGUAGES      := true
 TW_EXCLUDE_APEX         := true
 TW_INCLUDE_FASTBOOTD    := true
-TW_FRAMERATE 		:= 60
+TW_FRAMERATE 		:= 120
 
 # Blacklist Goodix fingerprint. There's no reason to include this input in recovery
 TW_INPUT_BLACKLIST := "uinput-goodix"

@@ -1,6 +1,6 @@
 #
 #	This file is part of the OrangeFox Recovery Project
-# 	Copyright (C) 2024-2025 The OrangeFox Recovery Project
+# 	Copyright (C) 2024-2026 The OrangeFox Recovery Project
 #
 #	OrangeFox is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -52,9 +52,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_DELETE_INITD_ADDON=1
 	export FOX_USE_ZSTD_BINARY=1
 	export FOX_USE_DATE_BINARY=1
-
-	# FRP
-	export OF_ENABLE_FRP_ADDON=1
 
 	# Magisk
 	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v30.6.zip

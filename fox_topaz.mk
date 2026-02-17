@@ -1,6 +1,6 @@
 #
 #	This file is part of the OrangeFox Recovery Project
-# 	Copyright (C) 2024-2025 The OrangeFox Recovery Project
+# 	Copyright (C) 2024-2026 The OrangeFox Recovery Project
 #
 #	OrangeFox is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -61,6 +61,8 @@ OF_ENABLE_ALL_PARTITION_TOOLS := 1
 # use legacy code for wrong clock issues
 OF_USE_LEGACY_TIME_FIXUP := 1
 
+# enable dmctl
+OF_USE_DMCTL := 1
 # automatically wipe /metadata after formatting /data (doesn't seem necessary here)
 # OF_WIPE_METADATA_AFTER_DATAFORMAT := 1
 

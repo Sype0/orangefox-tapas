@@ -51,7 +51,7 @@ OF_LOOP_DEVICE_ERRORS_TO_LOG := 1
 OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
 
 # don't keep log history - only use for Stable releases
-ifneq ($(FOX_BUILD_TYPE),Stable)
+ifeq ($(FOX_BUILD_TYPE),Stable)
    OF_DONT_KEEP_LOG_HISTORY := 1
 endif
 

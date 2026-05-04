@@ -20,13 +20,15 @@
 FDEVICE="topaz"
 
 fox_get_target_device() {
-local chkdev=$(echo "$BASH_SOURCE" | grep -w \"$FDEVICE\")
-   if [ -n "$chkdev" ]; then
-      FOX_BUILD_DEVICE="$FDEVICE"
-   else
-      chkdev=$(set | grep BASH_ARGV | grep -w \"$FDEVICE\")
-      [ -n "$chkdev" ] && FOX_BUILD_DEVICE="$FDEVICE"
-   fi
+  if echo "$BASH_SOURCE" | grep -q "/$FDEVICE/"; then
+      FOX_BUILD_DEVICE="$FDEVICE";
+  elif set | grep BASH_ARGV | grep -w \"$FDEVICE\"; then
+      FOX_BUILD_DEVICE="$FDEVICE";
+  elif echo "${BASH_SOURCE[0]}" | grep -q "/$FDEVICE/"; then
+      FOX_BUILD_DEVICE="$FDEVICE";
+  elif echo "$0" | grep -q "$FDEVICE"; then
+      FOX_BUILD_DEVICE="$FDEVICE";
+  fi
 }
 
 if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
@@ -53,6 +55,10 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_ZSTD_BINARY=1
 	export FOX_USE_DATE_BINARY=1
 	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v30.7.zip
+	export FOX_USE_BUSYBOX_BINARY=1
+
+	export FOX_SETTINGS_ROOT_DIRECTORY=/data/recovery
+	export FOX_MISCELLANEOUS_ROOT_DIRECTORY=/sdcard
 
 	# KSU, etc.
 	export FOX_ENABLE_KERNELSU_SUPPORT=1

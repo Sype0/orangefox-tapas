@@ -1,7 +1,7 @@
 #!/system/bin/sh
 #
 #	This file is part of the OrangeFox Recovery Project
-# 	Copyright (C) 2024-2025 The OrangeFox Recovery Project
+# 	Copyright (C) 2024-2026 The OrangeFox Recovery Project
 #
 #	OrangeFox is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -71,7 +71,18 @@ load_touch_drivers() {
 	done
 }
 
+# spoof our kernel version for the kernelsu installer addon
+run_ksu_spoof() {
+	LOGMSG "- Running KSU spoof script";
+	/system/bin/ksu_spoof.sh 13;
+}
+
+# ---
 LOGMSG "- Running $0 on $(date)";
+
+run_ksu_spoof;
+
 load_touch_drivers;
+
 exit 0;
 #

@@ -1,3 +1,4 @@
+# Builds OrangeFox Recovery for topaz/tapas from the fox_12.1 sources
 name: Build OrangeFox
 
 on:

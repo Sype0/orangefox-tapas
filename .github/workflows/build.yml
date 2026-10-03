@@ -2,6 +2,9 @@
 name: Build OrangeFox
 
 on:
+  push:
+    branches: [fox_12.1]
+    paths-ignore: ['**.md']
   workflow_dispatch:
     inputs:
       build_type:
@@ -85,8 +88,8 @@ jobs:
 
       - name: Build
         env:
-          FOX_BUILD_TYPE: ${{ inputs.build_type }}
-          OF_MAINTAINER: ${{ inputs.maintainer }}
+          FOX_BUILD_TYPE: ${{ inputs.build_type || 'Unofficial' }}
+          OF_MAINTAINER: ${{ inputs.maintainer || 'Sype0' }}
         run: |
           set +e
           cd "$FOX_DIR"
@@ -125,7 +128,7 @@ jobs:
           path: dist/*
 
       - name: Publish the release
-        if: ${{ inputs.publish }}
+        if: ${{ github.event_name == 'push' || inputs.publish }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -134,5 +137,5 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
             --title "${{ steps.out.outputs.name }}" \
-            --notes "OrangeFox (fox_$FOX_BRANCH) for Redmi Note 12 4G (tapas/topaz), build type: ${{ inputs.build_type }}.
+            --notes "OrangeFox (fox_$FOX_BRANCH) for Redmi Note 12 4G (tapas/topaz), build type: ${{ inputs.build_type || 'Unofficial' }}.
           Flash the .img to both recovery slots (\`fastboot flash recovery_ab <img>\`) or install the .zip from recovery."
